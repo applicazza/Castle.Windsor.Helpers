@@ -9,15 +9,15 @@ Various helpers for `Castle.Windsor.Helpers`
 ### AddArraySubResolver
 
 ```csharp
-using (var container = new WindsorContainer) {
+using (var container = new WindsorContainer()) {
     container.AddArraySubResolver();
 }
 ```
 
-### Register<TV>
+### Register\<TImplementation>
 
 ```csharp
-using (var container = new WindsorContainer) {
+using (var container = new WindsorContainer()) {
     container.Register<TImplementation>(
         dependencies: new Dictionary<string, object>(),
         isTransient: false,
@@ -26,10 +26,10 @@ using (var container = new WindsorContainer) {
 }
 ```
 
-### Register<TK,TV>
+### Register<TInterface,TImplementation>
 
 ```csharp
-using (var container = new WindsorContainer) {
+using (var container = new WindsorContainer()) {
     container.Register<TInterface, TImplementation>(
         dependencies: new Dictionary<string, object>(),
         isTransient: false,
@@ -41,7 +41,7 @@ using (var container = new WindsorContainer) {
 ### RegisterUsingFactoryMethod<TV>
 
 ```csharp
-using (var container = new WindsorContainer) {
+using (var container = new WindsorContainer()) {
     container.RegisterUsingFactoryMethod<TInterface>(
         factoryMethod: () => new DoStuff(),
         isTransient: false,
