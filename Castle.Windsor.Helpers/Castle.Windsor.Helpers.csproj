@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Title>Various helpers for Castle.Windsor</Title>
+        <PackageProjectUrl>https://github.com/applicazza/Castle.Windsor.Helpers</PackageProjectUrl>
+        <PackageIconUrl>https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjV9O2Mx7DgAhXS_aQKHc41CkEQjRx6BAgBEAU&amp;url=https%3A%2F%2Fgithub.com%2Fcastleproject%2FWindsor&amp;psig=AOvVaw0qLWgJONiYq26yCe4P83N2&amp;ust=1549867119426084</PackageIconUrl>
+        <RepositoryUrl>https://github.com/applicazza/Castle.Windsor.Helpers</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Castle.Windsor" Version="4.*" />
+    </ItemGroup>
+
+</Project>
