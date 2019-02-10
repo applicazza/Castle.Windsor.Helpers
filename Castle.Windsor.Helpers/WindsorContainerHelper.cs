@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Castle.Core;
 using Castle.Facilities.Startable;
 using Castle.MicroKernel;
@@ -15,7 +16,8 @@ namespace Castle.Windsor.Helpers
             this IWindsorContainer container,
             Dictionary<string, object> dependencies = null,
             bool isTransient = false,
-            bool isStartable = false,
+            Expression<Func<TK, Action>> startMethod = null,
+            Expression<Func<TK, Action>> stopMethod = null,
             Action<TK> onCreate = null
             )
             where TK : class where TV : TK
@@ -32,9 +34,14 @@ namespace Castle.Windsor.Helpers
                 component = component.DependsOn(Dependency.OnValue(key, dependencies[key]));
             }
 
-            if (isStartable)
+            if (startMethod != null)
             {
-                component = component.Start();
+                component = component.StartUsingMethod(startMethod);
+            }
+
+            if (stopMethod != null)
+            {
+                component = component.StopUsingMethod(stopMethod);
             }
 
             if (isTransient)
@@ -54,7 +61,8 @@ namespace Castle.Windsor.Helpers
             this IWindsorContainer container,
             Dictionary<string, object> dependencies = null,
             bool isTransient = false,
-            bool isStartable = false,
+            Expression<Func<TV, Action>> startMethod = null,
+            Expression<Func<TV, Action>> stopMethod = null,
             Action<TV> onCreate = null
         )
             where TV : class
@@ -71,9 +79,14 @@ namespace Castle.Windsor.Helpers
                 component = component.DependsOn(Dependency.OnValue(key, dependencies[key]));
             }
 
-            if (isStartable)
+            if (startMethod != null)
             {
-                component = component.Start();
+                component = component.StartUsingMethod(startMethod);
+            }
+
+            if (stopMethod != null)
+            {
+                component = component.StopUsingMethod(stopMethod);
             }
 
             if (isTransient)
