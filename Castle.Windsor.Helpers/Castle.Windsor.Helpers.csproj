@@ -6,6 +6,7 @@
         <PackageProjectUrl>https://github.com/applicazza/Castle.Windsor.Helpers</PackageProjectUrl>
         <PackageIconUrl>https://www.google.com/url?sa=i&amp;source=images&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjV9O2Mx7DgAhXS_aQKHc41CkEQjRx6BAgBEAU&amp;url=https%3A%2F%2Fgithub.com%2Fcastleproject%2FWindsor&amp;psig=AOvVaw0qLWgJONiYq26yCe4P83N2&amp;ust=1549867119426084</PackageIconUrl>
         <RepositoryUrl>https://github.com/applicazza/Castle.Windsor.Helpers</RepositoryUrl>
+        <PackageVersion>1.0.1</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
