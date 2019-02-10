@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Castle.Core;
+using Castle.Facilities.Startable;
 using Castle.MicroKernel;
 using Castle.MicroKernel.Context;
 using Castle.MicroKernel.Registration;
@@ -14,6 +15,7 @@ namespace Castle.Windsor.Helpers
             this IWindsorContainer container,
             Dictionary<string, object> dependencies = null,
             bool isTransient = false,
+            bool isStartable = false,
             Action<TK> onCreate = null
             )
             where TK : class where TV : TK
@@ -28,6 +30,11 @@ namespace Castle.Windsor.Helpers
             foreach (var key in dependencies.Keys)
             {
                 component = component.DependsOn(Dependency.OnValue(key, dependencies[key]));
+            }
+
+            if (isStartable)
+            {
+                component = component.Start();
             }
 
             if (isTransient)
@@ -47,6 +54,7 @@ namespace Castle.Windsor.Helpers
             this IWindsorContainer container,
             Dictionary<string, object> dependencies = null,
             bool isTransient = false,
+            bool isStartable = false,
             Action<TV> onCreate = null
         )
             where TV : class
@@ -61,6 +69,11 @@ namespace Castle.Windsor.Helpers
             foreach (var key in dependencies.Keys)
             {
                 component = component.DependsOn(Dependency.OnValue(key, dependencies[key]));
+            }
+
+            if (isStartable)
+            {
+                component = component.Start();
             }
 
             if (isTransient)
